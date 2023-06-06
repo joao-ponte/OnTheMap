@@ -13,6 +13,10 @@
 		FC994BA72A2F2E78003702C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC994BA52A2F2E78003702C8 /* Main.storyboard */; };
 		FC994BA92A2F2E7C003702C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC994BA82A2F2E7C003702C8 /* Assets.xcassets */; };
 		FC994BAC2A2F2E7C003702C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC994BAA2A2F2E7C003702C8 /* LaunchScreen.storyboard */; };
+		FC994BB62A2F304F003702C8 /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC994BB52A2F304F003702C8 /* OTMClient.swift */; };
+		FC994BB92A2F3447003702C8 /* StudentsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC994BB82A2F3447003702C8 /* StudentsResult.swift */; };
+		FC994BBB2A2F3479003702C8 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC994BBA2A2F3479003702C8 /* Student.swift */; };
+		FC994BBD2A2F3C2F003702C8 /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC994BBC2A2F3C2F003702C8 /* StudentModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		FC994BA82A2F2E7C003702C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC994BAB2A2F2E7C003702C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC994BAD2A2F2E7C003702C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC994BB52A2F304F003702C8 /* OTMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
+		FC994BB82A2F3447003702C8 /* StudentsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsResult.swift; sourceTree = "<group>"; };
+		FC994BBA2A2F3479003702C8 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		FC994BBC2A2F3C2F003702C8 /* StudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,9 @@
 		FC994B9E2A2F2E78003702C8 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				FC994BB72A2F342D003702C8 /* OTMResponse */,
+				FC994BB42A2F302B003702C8 /* OTMClient */,
+				FC994BB32A2F2FCD003702C8 /* OTMRequest */,
 				FC994B9F2A2F2E78003702C8 /* AppDelegate.swift */,
 				FC994BA12A2F2E78003702C8 /* SceneDelegate.swift */,
 				FC994BA32A2F2E78003702C8 /* ViewController.swift */,
@@ -63,8 +74,33 @@
 				FC994BA82A2F2E7C003702C8 /* Assets.xcassets */,
 				FC994BAA2A2F2E7C003702C8 /* LaunchScreen.storyboard */,
 				FC994BAD2A2F2E7C003702C8 /* Info.plist */,
+				FC994BBC2A2F3C2F003702C8 /* StudentModel.swift */,
 			);
 			path = OnTheMap;
+			sourceTree = "<group>";
+		};
+		FC994BB32A2F2FCD003702C8 /* OTMRequest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OTMRequest;
+			sourceTree = "<group>";
+		};
+		FC994BB42A2F302B003702C8 /* OTMClient */ = {
+			isa = PBXGroup;
+			children = (
+				FC994BB52A2F304F003702C8 /* OTMClient.swift */,
+			);
+			path = OTMClient;
+			sourceTree = "<group>";
+		};
+		FC994BB72A2F342D003702C8 /* OTMResponse */ = {
+			isa = PBXGroup;
+			children = (
+				FC994BB82A2F3447003702C8 /* StudentsResult.swift */,
+				FC994BBA2A2F3479003702C8 /* Student.swift */,
+			);
+			path = OTMResponse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC994BBD2A2F3C2F003702C8 /* StudentModel.swift in Sources */,
 				FC994BA42A2F2E78003702C8 /* ViewController.swift in Sources */,
+				FC994BBB2A2F3479003702C8 /* Student.swift in Sources */,
+				FC994BB62A2F304F003702C8 /* OTMClient.swift in Sources */,
 				FC994BA02A2F2E78003702C8 /* AppDelegate.swift in Sources */,
 				FC994BA22A2F2E78003702C8 /* SceneDelegate.swift in Sources */,
+				FC994BB92A2F3447003702C8 /* StudentsResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
