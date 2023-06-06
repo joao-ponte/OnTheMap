@@ -17,6 +17,8 @@
 		FC994BB92A2F3447003702C8 /* StudentsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC994BB82A2F3447003702C8 /* StudentsResult.swift */; };
 		FC994BBB2A2F3479003702C8 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC994BBA2A2F3479003702C8 /* Student.swift */; };
 		FC994BBD2A2F3C2F003702C8 /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC994BBC2A2F3C2F003702C8 /* StudentModel.swift */; };
+		FC994BC02A2F3E13003702C8 /* OTMResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC994BBF2A2F3E13003702C8 /* OTMResponse.swift */; };
+		FC994BC22A2F3FB3003702C8 /* PostStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC994BC12A2F3FB3003702C8 /* PostStudent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		FC994BB82A2F3447003702C8 /* StudentsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsResult.swift; sourceTree = "<group>"; };
 		FC994BBA2A2F3479003702C8 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		FC994BBC2A2F3C2F003702C8 /* StudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
+		FC994BBF2A2F3E13003702C8 /* OTMResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMResponse.swift; sourceTree = "<group>"; };
+		FC994BC12A2F3FB3003702C8 /* PostStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStudent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +68,8 @@
 		FC994B9E2A2F2E78003702C8 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
-				FC994BB72A2F342D003702C8 /* OTMResponse */,
 				FC994BB42A2F302B003702C8 /* OTMClient */,
+				FC994BB72A2F342D003702C8 /* OTMResponse */,
 				FC994BB32A2F2FCD003702C8 /* OTMRequest */,
 				FC994B9F2A2F2E78003702C8 /* AppDelegate.swift */,
 				FC994BA12A2F2E78003702C8 /* SceneDelegate.swift */,
@@ -82,6 +86,7 @@
 		FC994BB32A2F2FCD003702C8 /* OTMRequest */ = {
 			isa = PBXGroup;
 			children = (
+				FC994BC12A2F3FB3003702C8 /* PostStudent.swift */,
 			);
 			path = OTMRequest;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 			children = (
 				FC994BB82A2F3447003702C8 /* StudentsResult.swift */,
 				FC994BBA2A2F3479003702C8 /* Student.swift */,
+				FC994BBF2A2F3E13003702C8 /* OTMResponse.swift */,
 			);
 			path = OTMResponse;
 			sourceTree = "<group>";
@@ -177,8 +183,10 @@
 				FC994BBD2A2F3C2F003702C8 /* StudentModel.swift in Sources */,
 				FC994BA42A2F2E78003702C8 /* ViewController.swift in Sources */,
 				FC994BBB2A2F3479003702C8 /* Student.swift in Sources */,
+				FC994BC02A2F3E13003702C8 /* OTMResponse.swift in Sources */,
 				FC994BB62A2F304F003702C8 /* OTMClient.swift in Sources */,
 				FC994BA02A2F2E78003702C8 /* AppDelegate.swift in Sources */,
+				FC994BC22A2F3FB3003702C8 /* PostStudent.swift in Sources */,
 				FC994BA22A2F2E78003702C8 /* SceneDelegate.swift in Sources */,
 				FC994BB92A2F3447003702C8 /* StudentsResult.swift in Sources */,
 			);
