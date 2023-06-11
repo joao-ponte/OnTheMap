@@ -8,7 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var student: Student!
     override func viewDidLoad() {
         super.viewDidLoad()
 //        OTMClient.getStudents { student, error in
@@ -23,6 +24,13 @@ class ViewController: UIViewController {
                 print("\(String(describing: error))🤪")
             }
         }
+//        OTMClient.updateStudents(firstname: "Joao", lastName: "Ponte", latitude: 51.542903452258294, longitude: -0.03975658347538195, mapString: "London", mediaURL: "www.udacity.com", objectID: "8ZExGR5uX8") { (success, error) in
+//            if success {
+//                print("\(success)🤪")
+//            } else {
+//                print("\(String(describing: error))🤪")
+//            }
+//        }
         // Do any additional setup after loading the view.
     }
 

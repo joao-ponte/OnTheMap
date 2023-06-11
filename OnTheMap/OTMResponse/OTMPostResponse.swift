@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OTMResponse: Codable {
+struct OTMPostResponse: Codable {
     let createdAt: String
     let objectId: String
 }
