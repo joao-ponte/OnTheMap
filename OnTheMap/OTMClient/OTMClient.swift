@@ -62,7 +62,6 @@ class OTMClient {
     class func taskForPostRequest<RequestType: Codable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let body = body
         request.httpBody = try! JSONEncoder().encode(body)
@@ -107,6 +106,43 @@ class OTMClient {
                 }
             } catch {
                 completion(nil, error)
+            }
+        }
+        task.resume()
+    }
+    
+    class func loginUser(username: String, password: String, completion: @escaping (SessionResponse?, Error?) -> Void) {
+        let url = EndPoints.createSessionId.url
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let body = LoginRequest(udacity: LoginRequest.Udacity(username: username, password: password))
+        request.httpBody = try! JSONEncoder().encode(body)
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(nil, error)
+                    return
+                }
+                
+                guard let data = data else {
+                    completion(nil, nil)
+                    return
+                }
+                
+                let range = 5..<data.count
+                let newData = data.subdata(in: range)
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let response = try decoder.decode(SessionResponse.self, from: newData)
+                    completion(response, nil)
+                } catch {
+                    completion(nil, error)
+                }
             }
         }
         task.resume()
