@@ -46,7 +46,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gU9-nO-JDV"/>
-                                    <segue destination="Mut-gJ-3cD" kind="presentation" identifier="completeLogin" id="YST-7o-PK2"/>
+                                    <segue destination="Mut-gJ-3cD" kind="presentation" identifier="completeLogin" modalPresentationStyle="fullScreen" id="YST-7o-PK2"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vAz-Bf-9fY">
@@ -87,60 +87,132 @@
             </objects>
             <point key="canvasLocation" x="139.69465648854961" y="-2.1126760563380285"/>
         </scene>
-        <!--List-->
-        <scene sceneID="dG5-ST-3XW">
-            <objects>
-                <viewController id="kBo-Mn-RIw" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3xR-79-R8e">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="F1b-4F-RZA"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="List" image="list.bullet" catalog="system" id="4Dd-XT-ser"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j2o-oh-cXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1801" y="299"/>
-        </scene>
-        <!--Map-->
-        <scene sceneID="1gR-n9-fsZ">
-            <objects>
-                <viewController id="WV4-Sa-ed8" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="l0s-vj-1Wc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="W74-Dr-cow"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map.fill" catalog="system" id="Say-fF-uap"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ug-pK-I0z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1801" y="-308"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7Fy-On-Nir">
             <objects>
                 <tabBarController id="Mut-gJ-3cD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bRt-vu-gXj"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Yh-wL-CUf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="WV4-Sa-ed8" kind="relationship" relationship="viewControllers" id="siu-jY-BeZ"/>
-                        <segue destination="kBo-Mn-RIw" kind="relationship" relationship="viewControllers" id="Frb-3B-MxZ"/>
+                        <segue destination="vEh-yd-gEI" kind="relationship" relationship="viewControllers" id="Guz-3v-MPW"/>
+                        <segue destination="fRm-Zj-CFx" kind="relationship" relationship="viewControllers" id="cnF-q6-mtd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Twi-8d-6Wk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1040" y="-2"/>
+            <point key="canvasLocation" x="1002" y="-2"/>
+        </scene>
+        <!--On The Map-->
+        <scene sceneID="Z8D-r9-TVO">
+            <objects>
+                <tableViewController id="gW7-eD-Abs" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="On The Map" id="vNc-9y-ern">
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="8eH-TI-ZkU"/>
+                        <rightBarButtonItems>
+                            <barButtonItem image="plus" catalog="system" id="l5P-VT-dWq"/>
+                            <barButtonItem image="arrow.counterclockwise" catalog="system" id="uOP-6G-lbM"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rEu-nw-gez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2976" y="-329"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IFQ-pF-7tV">
+            <objects>
+                <navigationController id="vEh-yd-gEI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="map" catalog="system" id="dlY-ao-wp1"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="klq-a0-5d2">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gW7-eD-Abs" kind="relationship" relationship="rootViewController" id="Pa5-sn-IOn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CvJ-PA-e2u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2072" y="-329"/>
+        </scene>
+        <!--On The Map-->
+        <scene sceneID="fhT-kY-MTI">
+            <objects>
+                <tableViewController id="sym-3x-OXb" customClass="StudentTVController.swift" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="jaJ-gW-176">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="studentCell" id="n6g-3A-dcA">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n6g-3A-dcA" id="PFF-rR-ZAt">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sym-3x-OXb" id="BKk-b1-JxY"/>
+                            <outlet property="delegate" destination="sym-3x-OXb" id="du1-O2-S4S"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="On The Map" id="m3R-H0-dqB">
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="V9g-ap-65n">
+                            <connections>
+                                <action selector="pressLogout:" destination="sym-3x-OXb" id="YfS-pG-fF4"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="plus" catalog="system" id="wbQ-SR-Ql1">
+                                <connections>
+                                    <action selector="addLocation:" destination="sym-3x-OXb" id="Icz-64-KM7"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="arrow.counterclockwise" catalog="system" id="q2Q-1J-KN4">
+                                <connections>
+                                    <action selector="updateList:" destination="sym-3x-OXb" id="C4v-3e-vid"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableVIew" destination="jaJ-gW-176" id="L3y-nS-62b"/>
+                        <outlet property="tableView" destination="jaJ-gW-176" id="IRB-WX-Pb1"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xbr-Rv-fZL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2975" y="391"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="itj-tB-RS8">
+            <objects>
+                <navigationController id="fRm-Zj-CFx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="list.dash" catalog="system" id="j1y-2Y-f7f"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iUZ-AN-xnL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sym-3x-OXb" kind="relationship" relationship="rootViewController" id="T6c-7k-Yfi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPc-lQ-Q8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2071" y="391"/>
         </scene>
     </scenes>
     <resources>
-        <image name="list.bullet" catalog="system" width="128" height="87"/>
-        <image name="map.fill" catalog="system" width="128" height="110"/>
+        <image name="arrow.counterclockwise" catalog="system" width="113" height="128"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="map" catalog="system" width="128" height="112"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

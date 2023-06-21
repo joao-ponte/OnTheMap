@@ -1,0 +1,58 @@
+//
+//  StudentTVController.swift
+//  OnTheMap
+//
+//  Created by João Ponte on 21/06/2023.
+//
+
+import UIKit
+
+class StudentTVController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        OTMClient.getStudents { (students, error) in
+            StudentsResult.results = students
+            print(students)
+            self.tableView.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
+    @IBAction func addLocation(_ sender: Any) {
+    }
+    
+    @IBAction func pressLogout(_ sender: Any) {
+    }
+    
+    @IBAction func updateList(_ sender: Any) {
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return StudentsResult.results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell")!
+        let students = StudentsResult.results[indexPath.row]
+        cell.textLabel?.text = students.firstName + " " + students.lastName
+        cell.detailTextLabel?.text = students.mediaURL
+        return cell
+    }
+    
+    
+    
+}
+

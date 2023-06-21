@@ -151,8 +151,8 @@ class OTMClient {
     class func getStudents(completion: @escaping ([Student], Error?) -> Void) {
         taskForGetRequest(url: EndPoints.getStudents(100).url, response: StudentsResult.self) { (response, error) in
             if let response = response {
-                completion(response.results, nil)
-                print(response.results)
+                completion(StudentsResult.results, nil)
+                print(StudentsResult.results)
             } else {
                 completion([], error)
             }
