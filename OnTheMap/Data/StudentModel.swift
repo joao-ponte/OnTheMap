@@ -10,3 +10,5 @@ import Foundation
 class StudentModel {
     static var students = [Student]()
 }
+
+

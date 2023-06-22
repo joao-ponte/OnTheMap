@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
         emailTextField.text = ""
         passwordTextField.text = ""
     }
-    
+
     @IBAction func loginTapped(_ sender: Any) {
         setLoggingIn(loggingIn: true)
         

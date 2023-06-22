@@ -8,14 +8,13 @@
 import UIKit
 
 class StudentTVController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    @IBOutlet var tableView: UITableView!
+
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         OTMClient.getStudents { (students, error) in
-            StudentsResult.results = students
-            print(students)
+            StudentModel.students = students
             self.tableView.reloadData()
         }
     }
@@ -41,18 +40,16 @@ class StudentTVController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return StudentsResult.results.count
+        print("Number of rows: \(StudentModel.students.count)")
+        return StudentModel.students.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell")!
-        let students = StudentsResult.results[indexPath.row]
+        let students = StudentModel.students[indexPath.row]
         cell.textLabel?.text = students.firstName + " " + students.lastName
         cell.detailTextLabel?.text = students.mediaURL
         return cell
     }
-    
-    
-    
 }
 

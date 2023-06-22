@@ -8,6 +8,5 @@
 import Foundation
 
 struct StudentsResult: Codable {
-    
-    static var results = [Student]()
+    let results: [Student]
 }

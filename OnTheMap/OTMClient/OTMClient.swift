@@ -38,79 +38,6 @@ class OTMClient {
         
     }
     
-    class func taskForGetRequest<ResponseType: Decodable>(url: URL, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data else {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
-                return
-            }
-            let decoder = JSONDecoder()
-            do {
-                let responseObject = try decoder.decode(ResponseType.self, from: data)
-                DispatchQueue.main.async {
-                    completion(responseObject, nil)
-                }
-            } catch {
-                completion(nil, error)
-            }
-        }
-        task.resume()
-    }
-    
-    class func taskForPostRequest<RequestType: Codable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void) {
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let body = body
-        request.httpBody = try! JSONEncoder().encode(body)
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data else {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
-                return
-            }
-            let decoder = JSONDecoder()
-            do {
-                let responseObject = try decoder.decode(ResponseType.self, from: data)
-                DispatchQueue.main.async {
-                    completion(responseObject, nil)
-                }
-            } catch {
-                completion(nil, error)
-            }
-        }
-        task.resume()
-    }
-    
-    class func taskForPutRequest<RequestType: Codable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void) {
-        var request = URLRequest(url: url)
-        request.httpMethod = "PUT"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let body = body
-        request.httpBody = try! JSONEncoder().encode(body)
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data else {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
-                return
-            }
-            let decoder = JSONDecoder()
-            do {
-                let responseObject = try decoder.decode(ResponseType.self, from: data)
-                DispatchQueue.main.async {
-                    completion(responseObject, nil)
-                }
-            } catch {
-                completion(nil, error)
-            }
-        }
-        task.resume()
-    }
-    
     class func loginUser(username: String, password: String, completion: @escaping (SessionResponse?, Error?) -> Void) {
         let url = EndPoints.createSessionId.url
         var request = URLRequest(url: url)
@@ -149,10 +76,10 @@ class OTMClient {
     }
     
     class func getStudents(completion: @escaping ([Student], Error?) -> Void) {
-        taskForGetRequest(url: EndPoints.getStudents(100).url, response: StudentsResult.self) { (response, error) in
+        OTMHttpClient.taskForGetRequest(url: EndPoints.getStudents(100).url, response: StudentsResult.self) { (response, error) in
             if let response = response {
-                completion(StudentsResult.results, nil)
-                print(StudentsResult.results)
+                completion(response.results, nil)
+                print(response)
             } else {
                 completion([], error)
             }
@@ -161,7 +88,7 @@ class OTMClient {
     
     class func postStudents(firstname: String, lastName: String, latitude: Float, longitude: Float, mapString: String, mediaURL: String, completion: @escaping (Bool, Error?) -> Void) {
         let body = PostStudent(firstName: firstname, lastName: lastName, latitude: latitude, longitude: longitude, mapString: mapString, mediaURL: mediaURL, uniqueKey: "1234")
-        taskForPostRequest(url: EndPoints.postStudent.url, responseType: OTMPostResponse.self, body: body) { (response, error) in
+        OTMHttpClient.taskForPostRequest(url: EndPoints.postStudent.url, responseType: OTMPostResponse.self, body: body) { (response, error) in
             if let response = response {
                 print("\(response)☺️")
             } else {
@@ -173,7 +100,7 @@ class OTMClient {
     
     class func updateStudents(firstname: String, lastName: String, latitude: Float, longitude: Float, mapString: String, mediaURL: String, objectID: String, completion: @escaping (Bool, Error?) -> Void) {
         let body = PostStudent(firstName: firstname, lastName: lastName, latitude: latitude, longitude: longitude, mapString: mapString, mediaURL: mediaURL, uniqueKey: "1234")
-        taskForPostRequest(url: EndPoints.updateStudent(objectID).url, responseType: OTMPutResponse.self, body: body) { (response, error) in
+        OTMHttpClient.taskForPostRequest(url: EndPoints.updateStudent(objectID).url, responseType: OTMPutResponse.self, body: body) { (response, error) in
             if let response = response {
                 print("\(response)☺️")
             } else {
