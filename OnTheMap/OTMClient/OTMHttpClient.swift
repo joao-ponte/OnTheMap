@@ -34,6 +34,7 @@ class OTMHttpClient {
     class func taskForPostRequest<RequestType: Codable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let body = body
         request.httpBody = try! JSONEncoder().encode(body)
@@ -56,6 +57,7 @@ class OTMHttpClient {
         }
         task.resume()
     }
+
     
     class func taskForPutRequest<RequestType: Codable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)

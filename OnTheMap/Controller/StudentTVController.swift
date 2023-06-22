@@ -8,7 +8,7 @@
 import UIKit
 
 class StudentTVController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -29,9 +29,24 @@ class StudentTVController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     @IBAction func pressLogout(_ sender: Any) {
+        OTMClient.logout { (session, error) in
+            if let error = error {
+                print("Logout error: \(error)")
+            } else {
+                print("logout successful")
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+
     }
     
     @IBAction func updateList(_ sender: Any) {
+        OTMClient.getStudents { (students, error) in
+            StudentModel.students = students
+            self.tableView.reloadData()
+        }
     }
     
     
@@ -50,6 +65,24 @@ class StudentTVController: UIViewController, UITableViewDataSource, UITableViewD
         cell.textLabel?.text = students.firstName + " " + students.lastName
         cell.detailTextLabel?.text = students.mediaURL
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let student = StudentModel.students[indexPath.row]
+        
+        guard let url = URL(string: student.mediaURL) else {
+            let alertVC = UIAlertController(title: "Invalid URL", message: "The URL is not valid", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            show(alertVC, sender: nil)
+            return
+        }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            
+            print("Unable to open URL")
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
