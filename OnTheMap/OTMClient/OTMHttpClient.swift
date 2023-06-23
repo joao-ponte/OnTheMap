@@ -8,8 +8,9 @@
 import Foundation
 
 class OTMHttpClient {
+
     class func taskForGetRequest<ResponseType: Decodable>(url: URL, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
             guard let data = data else {
                 DispatchQueue.main.async {
                     completion(nil, error)
@@ -30,15 +31,18 @@ class OTMHttpClient {
         }
         task.resume()
     }
-    
-    class func taskForPostRequest<RequestType: Codable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void) {
+
+    class func taskForPostRequest<RequestType: Codable, ResponseType: Decodable>(url: URL,
+                                                                                 responseType: ResponseType.Type,
+                                                                                 body: RequestType,
+                                                                                 completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let body = body
-        request.httpBody = try! JSONEncoder().encode(body)
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        request.httpBody = try? JSONEncoder().encode(body)
+        let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
             guard let data = data else {
                 DispatchQueue.main.async {
                     completion(nil, error)
@@ -58,14 +62,17 @@ class OTMHttpClient {
         task.resume()
     }
 
-    
-    class func taskForPutRequest<RequestType: Codable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void) {
+    class func taskForPutRequest<RequestType: Codable, ResponseType: Decodable>(url: URL,
+                                                                                responseType: ResponseType.Type,
+                                                                                body: RequestType,
+                                                                                completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json",
+                         forHTTPHeaderField: "Content-Type")
         let body = body
-        request.httpBody = try! JSONEncoder().encode(body)
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        request.httpBody = try? JSONEncoder().encode(body)
+        let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
             guard let data = data else {
                 DispatchQueue.main.async {
                     completion(nil, error)

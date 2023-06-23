@@ -11,12 +11,12 @@ struct SessionResponse: Codable {
         let registered: Bool
         let key: String
     }
-    
+
     struct Session: Codable {
         let id: String
         let expiration: String
     }
-    
+
     let account: Account
     let session: Session
 }
