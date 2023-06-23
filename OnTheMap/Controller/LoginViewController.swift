@@ -12,8 +12,8 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        emailTextField.text = ""
-        passwordTextField.text = ""
+        emailTextField.text = "joao_ponte@msn.com"
+        passwordTextField.text = "talude2011"
     }
 
     @IBAction func loginTapped(_ sender: Any) {
