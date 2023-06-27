@@ -77,15 +77,20 @@ class StudentTVController: UIViewController, UITableViewDataSource, UITableViewD
             alertVC.addAction(UIAlertAction(title: "OK",
                                             style: .default,
                                             handler: nil))
-            show(alertVC, sender: nil)
+            self.present(alertVC, animated: true, completion: nil)
+            tableView.deselectRow(at: indexPath, animated: true)
             return
         }
+
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
-
             print("Unable to open URL")
         }
+
         tableView.deselectRow(at: indexPath, animated: true)
     }
+
+
+
 }

@@ -269,14 +269,26 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qcy-9D-jEN">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="d6S-FY-meP"/>
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="d6S-FY-meP">
+                            <connections>
+                                <action selector="pressLogout:" destination="RpC-It-xhQ" id="4kD-xw-t4X"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="plus" catalog="system" id="Q8T-Os-0mh"/>
-                            <barButtonItem image="arrow.clockwise" catalog="system" id="PFZ-5l-KnK"/>
+                            <barButtonItem image="plus" catalog="system" id="Q8T-Os-0mh">
+                                <connections>
+                                    <action selector="addLocation:" destination="RpC-It-xhQ" id="fwj-g6-y2j"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="arrow.clockwise" catalog="system" id="PFZ-5l-KnK">
+                                <connections>
+                                    <action selector="updateList:" destination="RpC-It-xhQ" id="Ohl-qD-cfr"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="mapVIew" destination="4uI-nH-MTd" id="IAP-3M-nRv"/>
+                        <outlet property="mapView" destination="4uI-nH-MTd" id="lRE-uS-nuw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5B-3v-8EE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

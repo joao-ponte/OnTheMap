@@ -23,7 +23,7 @@ class OTMClient {
             switch self {
 
             case .getStudents(let totalStudents):
-                return EndPoints.base + "/StudentLocation?limit=\(totalStudents)"
+                return EndPoints.base + "/StudentLocation?limit=\(totalStudents)&order=-updateAt"
             case .postStudent:
                 return EndPoints.base + "/StudentLocation"
             case .updateStudent(let objectID):
