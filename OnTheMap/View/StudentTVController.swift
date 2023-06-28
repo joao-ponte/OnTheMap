@@ -26,7 +26,7 @@ class StudentTVController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     @IBAction func addLocation(_ sender: Any) {
-        performSegue(withIdentifier: "newLocationFromTable", sender: nil)
+        presentAddLocationAlert()
     }
 
     @IBAction func pressLogout(_ sender: Any) {
@@ -40,14 +40,10 @@ class StudentTVController: UIViewController, UITableViewDataSource, UITableViewD
                 }
             }
         }
-
     }
 
     @IBAction func updateList(_ sender: Any) {
-        OTMClient.getStudents { (students, _) in
-            StudentModel.students = students
-            self.tableView.reloadData()
-        }
+        updateStudentList()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,7 +87,28 @@ class StudentTVController: UIViewController, UITableViewDataSource, UITableViewD
 
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    // MARK: - Private Methods
 
+    private func presentAddLocationAlert() {
+        if StudentModel.userHasLocation() {
+            let alertVC = UIAlertController(title: "Location Overwrite",
+                                            message: "You already have a location. Do you want to overwrite the existing location?",
+                                            preferredStyle: .alert)
 
+            alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alertVC.addAction(UIAlertAction(title: "Overwrite", style: .destructive) { _ in
+                self.performSegue(withIdentifier: "newLocationFromTable", sender: nil)
+            })
 
+            present(alertVC, animated: true, completion: nil)
+        } else {
+            performSegue(withIdentifier: "newLocationFromTable", sender: nil)
+        }
+    }
+    
+    private func updateStudentList() {
+        OTMClient.getStudents { (students, _) in
+            StudentModel.students = students
+        }
+    }
 }
