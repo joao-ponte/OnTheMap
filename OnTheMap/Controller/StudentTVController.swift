@@ -26,6 +26,7 @@ class StudentTVController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     @IBAction func addLocation(_ sender: Any) {
+        performSegue(withIdentifier: "newLocationFromTable", sender: nil)
     }
 
     @IBAction func pressLogout(_ sender: Any) {

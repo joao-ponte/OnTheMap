@@ -29,6 +29,8 @@ class MapStudentController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func addLocation(_ sender: Any) {
+        performSegue(withIdentifier: "newLocationFromMap", sender: nil)
+
     }
     
     @IBAction func pressLogout(_ sender: Any) {

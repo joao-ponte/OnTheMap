@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		FC23D8782A45B1FC0025A082 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC23D8772A45B1FC0025A082 /* LoginError.swift */; };
 		FC23D87A2A45BC260025A082 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC23D8792A45BC260025A082 /* Reachability.swift */; };
+		FC4A4EC12A4C34FE00367318 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A4EC02A4C34FE00367318 /* User.swift */; };
+		FC4A4EC32A4C40B600367318 /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A4EC22A4C40B600367318 /* TextFieldDelegate.swift */; };
+		FC4A4EC52A4C762A00367318 /* NewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A4EC42A4C762A00367318 /* NewLocationViewController.swift */; };
+		FC4A4EC72A4C766E00367318 /* SubmittedNewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A4EC62A4C766E00367318 /* SubmittedNewLocationViewController.swift */; };
 		FC518BC82A35DE0B005C23BD /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC518BC72A35DE0B005C23BD /* LoginRequest.swift */; };
 		FC518BCA2A35DEE0005C23BD /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC518BC92A35DEE0005C23BD /* SessionResponse.swift */; };
 		FC9002AD2A42F5E600F90E0D /* StudentTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9002AC2A42F5E600F90E0D /* StudentTVController.swift */; };
@@ -32,6 +36,10 @@
 /* Begin PBXFileReference section */
 		FC23D8772A45B1FC0025A082 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
 		FC23D8792A45BC260025A082 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		FC4A4EC02A4C34FE00367318 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FC4A4EC22A4C40B600367318 /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
+		FC4A4EC42A4C762A00367318 /* NewLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLocationViewController.swift; sourceTree = "<group>"; };
+		FC4A4EC62A4C766E00367318 /* SubmittedNewLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmittedNewLocationViewController.swift; sourceTree = "<group>"; };
 		FC518BC72A35DE0B005C23BD /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		FC518BC92A35DEE0005C23BD /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
 		FC9002AC2A42F5E600F90E0D /* StudentTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTVController.swift; sourceTree = "<group>"; };
@@ -91,6 +99,7 @@
 				FC994BB32A2F2FCD003702C8 /* OTMRequest */,
 				FC994B9F2A2F2E78003702C8 /* AppDelegate.swift */,
 				FC994BA12A2F2E78003702C8 /* SceneDelegate.swift */,
+				FC4A4EC22A4C40B600367318 /* TextFieldDelegate.swift */,
 				FC994BA52A2F2E78003702C8 /* Main.storyboard */,
 				FC994BA82A2F2E7C003702C8 /* Assets.xcassets */,
 				FC994BAA2A2F2E7C003702C8 /* LaunchScreen.storyboard */,
@@ -135,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				FC994BBC2A2F3C2F003702C8 /* StudentModel.swift */,
+				FC4A4EC02A4C34FE00367318 /* User.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -145,6 +155,8 @@
 				FCAA61312A419F6B00852439 /* LoginViewController.swift */,
 				FC9002AC2A42F5E600F90E0D /* StudentTVController.swift */,
 				FCA9CA6B2A44487C007471C0 /* MapStudentController.swift */,
+				FC4A4EC42A4C762A00367318 /* NewLocationViewController.swift */,
+				FC4A4EC62A4C766E00367318 /* SubmittedNewLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -221,19 +233,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC994BBD2A2F3C2F003702C8 /* StudentModel.swift in Sources */,
+				FC4A4EC32A4C40B600367318 /* TextFieldDelegate.swift in Sources */,
 				FC994BBB2A2F3479003702C8 /* Student.swift in Sources */,
 				FC994BC02A2F3E13003702C8 /* OTMPostResponse.swift in Sources */,
 				FC994BB62A2F304F003702C8 /* OTMClient.swift in Sources */,
 				FC994BA02A2F2E78003702C8 /* AppDelegate.swift in Sources */,
 				FC994BC22A2F3FB3003702C8 /* PostStudent.swift in Sources */,
 				FC23D8782A45B1FC0025A082 /* LoginError.swift in Sources */,
+				FC4A4EC52A4C762A00367318 /* NewLocationViewController.swift in Sources */,
 				FC9002AD2A42F5E600F90E0D /* StudentTVController.swift in Sources */,
 				FC994BC42A2F8000003702C8 /* OTMPutResponse.swift in Sources */,
 				FC994BA22A2F2E78003702C8 /* SceneDelegate.swift in Sources */,
 				FCA9CA6A2A439422007471C0 /* OTMHttpClient.swift in Sources */,
 				FC994BB92A2F3447003702C8 /* StudentsResult.swift in Sources */,
+				FC4A4EC72A4C766E00367318 /* SubmittedNewLocationViewController.swift in Sources */,
 				FC518BC82A35DE0B005C23BD /* LoginRequest.swift in Sources */,
 				FC23D87A2A45BC260025A082 /* Reachability.swift in Sources */,
+				FC4A4EC12A4C34FE00367318 /* User.swift in Sources */,
 				FCAA61322A419F6B00852439 /* LoginViewController.swift in Sources */,
 				FCA9CA6C2A44487C007471C0 /* MapStudentController.swift in Sources */,
 				FC518BCA2A35DEE0005C23BD /* SessionResponse.swift in Sources */,

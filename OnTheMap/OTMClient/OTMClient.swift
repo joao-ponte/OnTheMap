@@ -9,21 +9,31 @@ import Foundation
 
 class OTMClient {
 
+    struct Auth {
+        static var sessionId: String = ""
+        static var accountKey: String = ""
+        static var firstName: String = ""
+        static var lastName: String = ""
+    }
+    
     enum EndPoints {
 
         static let base = "https://onthemap-api.udacity.com/v1"
 
-        case getStudents(Int)
+        case getStudents
         case postStudent
         case updateStudent(String)
         case createSessionId
         case logout
+        case users
+        case signUp
+
 
         var stringValue: String {
             switch self {
 
-            case .getStudents(let totalStudents):
-                return EndPoints.base + "/StudentLocation?limit=\(totalStudents)&order=-updateAt"
+            case .getStudents:
+                return EndPoints.base + "/StudentLocation" + "?limit=100&order=-updatedAt"
             case .postStudent:
                 return EndPoints.base + "/StudentLocation"
             case .updateStudent(let objectID):
@@ -32,6 +42,10 @@ class OTMClient {
                 return EndPoints.base + "/session"
             case .logout:
                 return EndPoints.base + "/session"
+            case .users:
+                return EndPoints.base + "/users/" + Auth.sessionId
+            case .signUp:
+                return "https://auth.udacity.com/sign-up"
             }
         }
 
@@ -84,49 +98,22 @@ class OTMClient {
         task.resume()
     }
 
-    class func loginUser(username: String, password: String, completion: @escaping (SessionResponse?, Error?) -> Void) {
-        let url = EndPoints.createSessionId.url
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-
+    class func loginUser(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
         let body = LoginRequest(udacity: LoginRequest.Udacity(username: username, password: password))
-        request.httpBody = try? JSONEncoder().encode(body)
-
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            DispatchQueue.main.async {
-                if let error = error {
-                    completion(nil, error)
-                    return
-                }
-
-                guard let data = data else {
-                    completion(nil, nil)
-                    return
-                }
-
-                let range = 5..<data.count
-                let newData = data.subdata(in: range)
-
-                do {
-                    let decoder = JSONDecoder()
-                    let response = try decoder.decode(SessionResponse.self, from: newData)
-
-                    let sessionID = response.session.id
-                    let expiration = response.session.expiration
-                    let accountKey = response.account.key
-                    completion(response, nil)
-                } catch {
-                    completion(nil, error)
-                }
+        OTMHttpClient.taskForPostRequest(udacityAPI: true, url: EndPoints.createSessionId.url, responseType: SessionResponse.self, body: body) { (response, error) in
+            if let response = response {
+                Auth.sessionId = response.session.id
+                Auth.accountKey = response.account.key
+                completion(true, nil)
+                getPublicUserData()
+            } else {
+               completion(false, error)
             }
         }
-        task.resume()
     }
-
+    
     class func getStudents(completion: @escaping ([Student], Error?) -> Void) {
-        OTMHttpClient.taskForGetRequest(url: EndPoints.getStudents(100).url,
+        OTMHttpClient.taskForGetRequest(udacityAPI: false, url: EndPoints.getStudents.url,
                                         response: StudentsResult.self) { (response, error) in
             if let response = response {
                 completion(response.results, nil)
@@ -137,57 +124,65 @@ class OTMClient {
         }
     }
 
-    class func postStudents(firstname: String,
-                            lastName: String,
-                            latitude: Float,
-                            longitude: Float,
-                            mapString: String,
-                            mediaURL: String,
-                            completion: @escaping (Bool, Error?) -> Void) {
-
-        let body = PostStudent(firstName: firstname,
-                               lastName: lastName,
-                               latitude: latitude,
-                               longitude: longitude,
-                               mapString: mapString,
-                               mediaURL: mediaURL,
-                               uniqueKey: "1234")
-
-        OTMHttpClient.taskForPostRequest(url: EndPoints.postStudent.url,
-                                         responseType: OTMPostResponse.self,
-                                         body: body) { (response, error) in
+//    class func postStudents(firstname: String,
+//                            lastName: String,
+//                            latitude: Float,
+//                            longitude: Float,
+//                            mapString: String,
+//                            mediaURL: String,
+//                            completion: @escaping (Bool, Error?) -> Void) {
+//
+//        let body = PostStudent(firstName: firstname,
+//                               lastName: lastName,
+//                               latitude: latitude,
+//                               longitude: longitude,
+//                               mapString: mapString,
+//                               mediaURL: mediaURL,
+//                               uniqueKey: "1234")
+//
+//        OTMHttpClient.taskForPostRequest(url: EndPoints.postStudent.url,
+//                                         responseType: OTMPostResponse.self,
+//                                         body: body) { (response, error) in
+//            if let response = response {
+//                print("\(response)☺️")
+//            } else {
+//                completion(false, error)
+//                print("\(String(describing: error))😴")
+//            }
+//        }
+//    }
+//
+//    class func updateStudents(firstname: String,
+//                              lastName: String,
+//                              latitude: Float,
+//                              longitude: Float,
+//                              mapString: String,
+//                              mediaURL: String,
+//                              objectID: String,
+//                              completion: @escaping (Bool, Error?) -> Void) {
+//
+//        let body = PostStudent(firstName: firstname,
+//                               lastName: lastName,
+//                               latitude: latitude,
+//                               longitude: longitude,
+//                               mapString: mapString, mediaURL: mediaURL, uniqueKey: "1234")
+//
+//        OTMHttpClient.taskForPostRequest(url: EndPoints.updateStudent(objectID).url,
+//                                         responseType: OTMPutResponse.self,
+//                                         body: body) { (response, error) in
+//            if let response = response {
+//                print("\(response)☺️")
+//            } else {
+//                completion(false, error)
+//                print("\(String(describing: error))😴")
+//            }
+//        }
+//    }
+    class func getPublicUserData() {
+        OTMHttpClient.taskForGetRequest(udacityAPI: true, url: EndPoints.users.url, response: User.self) { response, error in
             if let response = response {
-                print("\(response)☺️")
-            } else {
-                completion(false, error)
-                print("\(String(describing: error))😴")
-            }
-        }
-    }
-
-    class func updateStudents(firstname: String,
-                              lastName: String,
-                              latitude: Float,
-                              longitude: Float,
-                              mapString: String,
-                              mediaURL: String,
-                              objectID: String,
-                              completion: @escaping (Bool, Error?) -> Void) {
-
-        let body = PostStudent(firstName: firstname,
-                               lastName: lastName,
-                               latitude: latitude,
-                               longitude: longitude,
-                               mapString: mapString, mediaURL: mediaURL, uniqueKey: "1234")
-
-        OTMHttpClient.taskForPostRequest(url: EndPoints.updateStudent(objectID).url,
-                                         responseType: OTMPutResponse.self,
-                                         body: body) { (response, error) in
-            if let response = response {
-                print("\(response)☺️")
-            } else {
-                completion(false, error)
-                print("\(String(describing: error))😴")
+                Auth.firstName = response.firstName
+                Auth.lastName = response.lastName
             }
         }
     }

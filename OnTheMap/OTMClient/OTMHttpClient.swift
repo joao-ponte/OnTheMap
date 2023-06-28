@@ -9,7 +9,7 @@ import Foundation
 
 class OTMHttpClient {
 
-    class func taskForGetRequest<ResponseType: Decodable>(url: URL, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
+    class func taskForGetRequest<ResponseType: Decodable>(udacityAPI: Bool, url: URL, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
             guard let data = data else {
                 DispatchQueue.main.async {
@@ -18,8 +18,15 @@ class OTMHttpClient {
                 return
             }
             let decoder = JSONDecoder()
+            var newData = Data()
+            if udacityAPI {
+                let range = 5..<data.count
+                newData = data.subdata(in: range)
+            } else {
+                newData = data
+            }
             do {
-                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                let responseObject = try decoder.decode(ResponseType.self, from: newData)
                 DispatchQueue.main.async {
                     completion(responseObject, nil)
                     print(responseObject)
@@ -32,7 +39,7 @@ class OTMHttpClient {
         task.resume()
     }
 
-    class func taskForPostRequest<RequestType: Codable, ResponseType: Decodable>(url: URL,
+    class func taskForPostRequest<RequestType: Codable, ResponseType: Decodable>(udacityAPI: Bool, url: URL,
                                                                                  responseType: ResponseType.Type,
                                                                                  body: RequestType,
                                                                                  completion: @escaping (ResponseType?, Error?) -> Void) {
@@ -50,8 +57,15 @@ class OTMHttpClient {
                 return
             }
             let decoder = JSONDecoder()
+            var newData = Data()
+            if udacityAPI {
+                let range = 5..<data.count
+                newData = data.subdata(in: range)
+            } else {
+                newData = data
+            }
             do {
-                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                let responseObject = try decoder.decode(ResponseType.self, from: newData)
                 DispatchQueue.main.async {
                     completion(responseObject, nil)
                 }
@@ -62,33 +76,4 @@ class OTMHttpClient {
         task.resume()
     }
 
-    class func taskForPutRequest<RequestType: Codable, ResponseType: Decodable>(url: URL,
-                                                                                responseType: ResponseType.Type,
-                                                                                body: RequestType,
-                                                                                completion: @escaping (ResponseType?, Error?) -> Void) {
-        var request = URLRequest(url: url)
-        request.httpMethod = "PUT"
-        request.addValue("application/json",
-                         forHTTPHeaderField: "Content-Type")
-        let body = body
-        request.httpBody = try? JSONEncoder().encode(body)
-        let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
-            guard let data = data else {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
-                return
-            }
-            let decoder = JSONDecoder()
-            do {
-                let responseObject = try decoder.decode(ResponseType.self, from: data)
-                DispatchQueue.main.async {
-                    completion(responseObject, nil)
-                }
-            } catch {
-                completion(nil, error)
-            }
-        }
-        task.resume()
-    }
 }
