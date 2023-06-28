@@ -13,6 +13,7 @@
 		FC4A4EC32A4C40B600367318 /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A4EC22A4C40B600367318 /* TextFieldDelegate.swift */; };
 		FC4A4EC52A4C762A00367318 /* NewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A4EC42A4C762A00367318 /* NewLocationViewController.swift */; };
 		FC4A4EC72A4C766E00367318 /* SubmittedNewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A4EC62A4C766E00367318 /* SubmittedNewLocationViewController.swift */; };
+		FC4A4ECF2A4CA38B00367318 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = FC4A4ECE2A4CA38B00367318 /* Reachability */; };
 		FC518BC82A35DE0B005C23BD /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC518BC72A35DE0B005C23BD /* LoginRequest.swift */; };
 		FC518BCA2A35DEE0005C23BD /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC518BC92A35DEE0005C23BD /* SessionResponse.swift */; };
 		FC9002AD2A42F5E600F90E0D /* StudentTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9002AC2A42F5E600F90E0D /* StudentTVController.swift */; };
@@ -67,12 +68,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC4A4ECF2A4CA38B00367318 /* Reachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC4A4EC92A4C9C4300367318 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FCAA61312A419F6B00852439 /* LoginViewController.swift */,
+				FC9002AC2A42F5E600F90E0D /* StudentTVController.swift */,
+				FCA9CA6B2A44487C007471C0 /* MapStudentController.swift */,
+				FC4A4EC42A4C762A00367318 /* NewLocationViewController.swift */,
+				FC4A4EC62A4C766E00367318 /* SubmittedNewLocationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FC994B932A2F2E78003702C8 = {
 			isa = PBXGroup;
 			children = (
@@ -93,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				FCA77E252A44615500384803 /* Data */,
-				FCAA61302A419F5600852439 /* Controller */,
+				FC4A4EC92A4C9C4300367318 /* View */,
 				FC994BB42A2F302B003702C8 /* OTMClient */,
 				FC994BB72A2F342D003702C8 /* OTMResponse */,
 				FC994BB32A2F2FCD003702C8 /* OTMRequest */,
@@ -149,18 +163,6 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		FCAA61302A419F5600852439 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				FCAA61312A419F6B00852439 /* LoginViewController.swift */,
-				FC9002AC2A42F5E600F90E0D /* StudentTVController.swift */,
-				FCA9CA6B2A44487C007471C0 /* MapStudentController.swift */,
-				FC4A4EC42A4C762A00367318 /* NewLocationViewController.swift */,
-				FC4A4EC62A4C766E00367318 /* SubmittedNewLocationViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,6 +179,9 @@
 			dependencies = (
 			);
 			name = OnTheMap;
+			packageProductDependencies = (
+				FC4A4ECE2A4CA38B00367318 /* Reachability */,
+			);
 			productName = OnTheMap;
 			productReference = FC994B9C2A2F2E78003702C8 /* OnTheMap.app */;
 			productType = "com.apple.product-type.application";
@@ -205,6 +210,9 @@
 				Base,
 			);
 			mainGroup = FC994B932A2F2E78003702C8;
+			packageReferences = (
+				FC4A4ECD2A4CA38B00367318 /* XCRemoteSwiftPackageReference "Reachability" */,
+			);
 			productRefGroup = FC994B9D2A2F2E78003702C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -470,6 +478,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FC4A4ECD2A4CA38B00367318 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FC4A4ECE2A4CA38B00367318 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC4A4ECD2A4CA38B00367318 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FC994B942A2F2E78003702C8 /* Project object */;
 }

@@ -324,6 +324,7 @@
                                     <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="tapFindOnTheMap:" destination="8ib-yU-gjQ" eventType="touchUpInside" id="dFn-tA-vlL"/>
                                     <segue destination="C2j-Zl-JMX" kind="presentation" identifier="findLocation" modalPresentationStyle="fullScreen" id="Y08-2A-zl1"/>
                                 </connections>
                             </button>
@@ -345,6 +346,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Cancel">
                                     <color key="baseForegroundColor" red="1" green="0.3411764705882353" blue="0.13333333333333333" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="cancelNewLocation:" destination="8ib-yU-gjQ" eventType="touchUpInside" id="6OV-2S-rVJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4rb-yk-A9E"/>
@@ -366,6 +370,9 @@
                             <constraint firstItem="9Te-2d-wlE" firstAttribute="top" secondItem="4rb-yk-A9E" secondAttribute="top" constant="27" id="xBz-8U-DfT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="locationTextField" destination="ERp-aB-6ZL" id="22w-ag-dea"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e07-TA-3Rf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -385,6 +392,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Cancel">
                                     <color key="baseForegroundColor" red="1" green="0.3411764705882353" blue="0.13333333333333333" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="cancelNewLocation:" destination="C2j-Zl-JMX" eventType="touchUpInside" id="b4i-vW-ScI"/>
+                                </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QzE-20-4XH">
                                 <rect key="frame" x="0.0" y="306" width="393" height="526"/>
@@ -406,6 +416,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Submit">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="submitNewLocation:" destination="C2j-Zl-JMX" eventType="touchUpInside" id="o0L-pi-PIM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NrO-H3-Jfn"/>
@@ -427,6 +440,10 @@
                             <constraint firstItem="QzE-20-4XH" firstAttribute="leading" secondItem="NrO-H3-Jfn" secondAttribute="leading" id="vew-2h-PYx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="linkTextField" destination="8w5-Z1-l0r" id="6xD-hp-JNu"/>
+                        <outlet property="mapView" destination="QzE-20-4XH" id="6YN-7C-XAi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJl-Iy-ZK2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
