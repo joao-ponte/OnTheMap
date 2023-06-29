@@ -22,7 +22,6 @@ class SubmittedNewLocationViewController: UIViewController, MKMapViewDelegate {
         super.viewWillAppear(animated)
         linkTextField.text = "Enter a Link to share here"
         if locationText != nil {
-            // Set the location text in your UI element (e.g., a label)
         }
         linkTextField.delegate = textFieldDelegate
         
@@ -62,10 +61,9 @@ class SubmittedNewLocationViewController: UIViewController, MKMapViewDelegate {
         guard let annotation = view.annotation as? MKPointAnnotation else {
             return
         }
-        
+
         latitude = annotation.coordinate.latitude
         longitude = annotation.coordinate.longitude
-        
         centerMapOnLocation(annotation.coordinate)
     }
 
@@ -74,7 +72,6 @@ class SubmittedNewLocationViewController: UIViewController, MKMapViewDelegate {
               let mediaURL = linkTextField.text,
               let latitude = latitude,
               let longitude = longitude else {
-            // Handle missing location, media URL, latitude, or longitude error
             return
         }
 
@@ -95,7 +92,6 @@ class SubmittedNewLocationViewController: UIViewController, MKMapViewDelegate {
                 }
             }
         } else {
-            // Add new student
             OTMClient.addStudent(mapString: location, mediaURL: mediaURL, latitude: Float(latitude), longitude: Float(longitude)) { success, error in
                 if success {
                     self.showAlert(title: "Success", message: "A student was added successfully", dismissHandler: { [weak self] in
@@ -110,11 +106,7 @@ class SubmittedNewLocationViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
-
-
     
-    
-
     func showAlert(title: String, message: String, dismissHandler: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "OK", style: .default) { _ in

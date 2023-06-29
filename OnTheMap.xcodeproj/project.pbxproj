@@ -17,6 +17,7 @@
 		FC518BC82A35DE0B005C23BD /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC518BC72A35DE0B005C23BD /* LoginRequest.swift */; };
 		FC518BCA2A35DEE0005C23BD /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC518BC92A35DEE0005C23BD /* SessionResponse.swift */; };
 		FC9002AD2A42F5E600F90E0D /* StudentTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9002AC2A42F5E600F90E0D /* StudentTVController.swift */; };
+		FC94CE3B2A4D797900C79F27 /* StudentListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC94CE3A2A4D797900C79F27 /* StudentListController.swift */; };
 		FC994BA02A2F2E78003702C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC994B9F2A2F2E78003702C8 /* AppDelegate.swift */; };
 		FC994BA22A2F2E78003702C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC994BA12A2F2E78003702C8 /* SceneDelegate.swift */; };
 		FC994BA72A2F2E78003702C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC994BA52A2F2E78003702C8 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		FC518BC72A35DE0B005C23BD /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		FC518BC92A35DEE0005C23BD /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
 		FC9002AC2A42F5E600F90E0D /* StudentTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTVController.swift; sourceTree = "<group>"; };
+		FC94CE3A2A4D797900C79F27 /* StudentListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListController.swift; sourceTree = "<group>"; };
 		FC994B9C2A2F2E78003702C8 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC994B9F2A2F2E78003702C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC994BA12A2F2E78003702C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,38 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		FC94CE3C2A4D79F900C79F27 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FC994B9F2A2F2E78003702C8 /* AppDelegate.swift */,
+				FC4A4EC22A4C40B600367318 /* TextFieldDelegate.swift */,
+				FC94CE3A2A4D797900C79F27 /* StudentListController.swift */,
+				FC994BA12A2F2E78003702C8 /* SceneDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FC94CE3D2A4D837600C79F27 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				FC994BB52A2F304F003702C8 /* OTMClient.swift */,
+				FCA9CA692A439422007471C0 /* OTMHttpClient.swift */,
+				FC23D8772A45B1FC0025A082 /* LoginError.swift */,
+				FC23D8792A45BC260025A082 /* Reachability.swift */,
+				FC994BB42A2F302B003702C8 /* OTMClient */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		FC94CE3E2A4D83AE00C79F27 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC994BB32A2F2FCD003702C8 /* OTMRequest */,
+				FC994BB72A2F342D003702C8 /* OTMResponse */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FC994B932A2F2E78003702C8 = {
 			isa = PBXGroup;
 			children = (
@@ -106,14 +140,10 @@
 		FC994B9E2A2F2E78003702C8 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
-				FCA77E252A44615500384803 /* Data */,
+				FC94CE3D2A4D837600C79F27 /* API */,
 				FC4A4EC92A4C9C4300367318 /* View */,
-				FC994BB42A2F302B003702C8 /* OTMClient */,
-				FC994BB72A2F342D003702C8 /* OTMResponse */,
-				FC994BB32A2F2FCD003702C8 /* OTMRequest */,
-				FC994B9F2A2F2E78003702C8 /* AppDelegate.swift */,
-				FC994BA12A2F2E78003702C8 /* SceneDelegate.swift */,
-				FC4A4EC22A4C40B600367318 /* TextFieldDelegate.swift */,
+				FC94CE3C2A4D79F900C79F27 /* Protocols */,
+				FCA77E252A44615500384803 /* Data */,
 				FC994BA52A2F2E78003702C8 /* Main.storyboard */,
 				FC994BA82A2F2E7C003702C8 /* Assets.xcassets */,
 				FC994BAA2A2F2E7C003702C8 /* LaunchScreen.storyboard */,
@@ -134,10 +164,7 @@
 		FC994BB42A2F302B003702C8 /* OTMClient */ = {
 			isa = PBXGroup;
 			children = (
-				FC994BB52A2F304F003702C8 /* OTMClient.swift */,
-				FCA9CA692A439422007471C0 /* OTMHttpClient.swift */,
-				FC23D8772A45B1FC0025A082 /* LoginError.swift */,
-				FC23D8792A45BC260025A082 /* Reachability.swift */,
+				FC94CE3E2A4D83AE00C79F27 /* Models */,
 			);
 			path = OTMClient;
 			sourceTree = "<group>";
@@ -150,6 +177,7 @@
 				FC994BBF2A2F3E13003702C8 /* OTMPostResponse.swift */,
 				FC994BC32A2F8000003702C8 /* OTMPutResponse.swift */,
 				FC518BC92A35DEE0005C23BD /* SessionResponse.swift */,
+				FC4A4EC02A4C34FE00367318 /* User.swift */,
 			);
 			path = OTMResponse;
 			sourceTree = "<group>";
@@ -158,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				FC994BBC2A2F3C2F003702C8 /* StudentModel.swift */,
-				FC4A4EC02A4C34FE00367318 /* User.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -255,6 +282,7 @@
 				FCA9CA6A2A439422007471C0 /* OTMHttpClient.swift in Sources */,
 				FC994BB92A2F3447003702C8 /* StudentsResult.swift in Sources */,
 				FC4A4EC72A4C766E00367318 /* SubmittedNewLocationViewController.swift in Sources */,
+				FC94CE3B2A4D797900C79F27 /* StudentListController.swift in Sources */,
 				FC518BC82A35DE0B005C23BD /* LoginRequest.swift in Sources */,
 				FC23D87A2A45BC260025A082 /* Reachability.swift in Sources */,
 				FC4A4EC12A4C34FE00367318 /* User.swift in Sources */,

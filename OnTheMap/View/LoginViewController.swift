@@ -18,10 +18,8 @@ class LoginViewController: UIViewController, UIGestureRecognizerDelegate {
         emailTextField.delegate = textFieldDelegate
         passwordTextField.delegate = textFieldDelegate
         
-        
-        
-        emailTextField.text = "joao_ponte@msn.com"
-        passwordTextField.text = "talude2011"
+        emailTextField.text = ""
+        passwordTextField.text = ""
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.delegate = self

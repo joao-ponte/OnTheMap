@@ -230,7 +230,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="dHn-YU-khK" id="wha-Pt-xks"/>
-                        <segue destination="8ib-yU-gjQ" kind="presentation" identifier="newLocationFromTable" modalPresentationStyle="fullScreen" id="x6s-jB-oMu"/>
+                        <segue destination="8ib-yU-gjQ" kind="presentation" identifier="newLocation" modalPresentationStyle="fullScreen" id="x6s-jB-oMu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ss3-2a-fZs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -301,7 +301,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="4uI-nH-MTd" id="lRE-uS-nuw"/>
-                        <segue destination="8ib-yU-gjQ" kind="presentation" identifier="newLocationFromMap" modalPresentationStyle="fullScreen" id="isv-mf-ZZB"/>
+                        <segue destination="8ib-yU-gjQ" kind="presentation" identifier="newLocation" modalPresentationStyle="fullScreen" id="isv-mf-ZZB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5B-3v-8EE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -451,7 +451,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="isv-mf-ZZB"/>
+        <segue reference="x6s-jB-oMu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="113" height="128"/>

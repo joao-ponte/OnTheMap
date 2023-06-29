@@ -9,7 +9,10 @@ import Foundation
 
 class OTMHttpClient {
 
-    class func taskForGetRequest<ResponseType: Decodable>(udacityAPI: Bool, url: URL, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) {
+    class func taskForGetRequest<ResponseType: Decodable>(udacityAPI: Bool,
+                                                          url: URL,
+                                                          response: ResponseType.Type,
+                                                          completion: @escaping (ResponseType?, Error?) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
             guard let data = data else {
                 DispatchQueue.main.async {
