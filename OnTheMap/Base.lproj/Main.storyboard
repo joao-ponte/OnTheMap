@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="40" id="R9U-6H-raC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRf-BX-xsA">
                                 <rect key="frame" x="10" y="421" width="373" height="34.333333333333314"/>
@@ -420,6 +420,9 @@
                                     <action selector="submitNewLocation:" destination="C2j-Zl-JMX" eventType="touchUpInside" id="o0L-pi-PIM"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kSH-rf-aoU">
+                                <rect key="frame" x="186.66666666666666" y="138" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NrO-H3-Jfn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -433,7 +436,9 @@
                             <constraint firstItem="nV3-Qy-6gC" firstAttribute="centerX" secondItem="NrO-H3-Jfn" secondAttribute="centerX" id="KdJ-vf-PdI"/>
                             <constraint firstItem="QzE-20-4XH" firstAttribute="centerX" secondItem="NrO-H3-Jfn" secondAttribute="centerX" id="Mlb-8h-hfq"/>
                             <constraint firstItem="8w5-Z1-l0r" firstAttribute="top" secondItem="NrO-H3-Jfn" secondAttribute="top" constant="69" id="Pq8-3a-pFd"/>
+                            <constraint firstItem="kSH-rf-aoU" firstAttribute="centerX" secondItem="NrO-H3-Jfn" secondAttribute="centerX" id="Vj6-Bx-njU"/>
                             <constraint firstItem="8w5-Z1-l0r" firstAttribute="top" secondItem="DvD-Db-iBF" secondAttribute="bottom" constant="8" symbolic="YES" id="cnV-Hs-C1n"/>
+                            <constraint firstItem="kSH-rf-aoU" firstAttribute="top" secondItem="8w5-Z1-l0r" secondAttribute="bottom" constant="35" id="j67-3G-xel"/>
                             <constraint firstItem="NrO-H3-Jfn" firstAttribute="bottom" secondItem="QzE-20-4XH" secondAttribute="bottom" constant="20" id="kZn-3o-RKX"/>
                             <constraint firstItem="NrO-H3-Jfn" firstAttribute="trailing" secondItem="8w5-Z1-l0r" secondAttribute="trailing" constant="16" id="mwt-4y-kUU"/>
                             <constraint firstItem="DvD-Db-iBF" firstAttribute="top" secondItem="NrO-H3-Jfn" secondAttribute="top" constant="27" id="nEK-Ei-5i8"/>
@@ -441,6 +446,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="kSH-rf-aoU" id="ehe-0E-Ue5"/>
                         <outlet property="linkTextField" destination="8w5-Z1-l0r" id="6xD-hp-JNu"/>
                         <outlet property="mapView" destination="QzE-20-4XH" id="6YN-7C-XAi"/>
                     </connections>
