@@ -64,23 +64,14 @@ extension StudentTVController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let student = StudentModel.students[indexPath.row]
         
-        guard let url = URL(string: student.mediaURL) else {
-            let alertVC = UIAlertController(title: "Invalid URL",
-                                            message: "The URL is not valid",
-                                            preferredStyle: .alert)
-            
-            alertVC.addAction(UIAlertAction(title: "OK",
-                                            style: .default,
-                                            handler: nil))
-            self.present(alertVC, animated: true, completion: nil)
-            tableView.deselectRow(at: indexPath, animated: true)
-            return
-        }
-        
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        if let url = URL(string: student.mediaURL) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                Alert.basicAlert(title: "Unable to Open URL", message: "The URL cannot be opened", vc: self)
+            }
         } else {
-            print("Unable to open URL")
+            Alert.basicAlert(title: "Invalid URL", message: "The URL is not valid", vc: self)
         }
         
         tableView.deselectRow(at: indexPath, animated: true)

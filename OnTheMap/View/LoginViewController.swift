@@ -37,30 +37,30 @@ class LoginViewController: UIViewController, UIGestureRecognizerDelegate {
         if reachability?.connection == .unavailable {
             // No internet connection
             let errorMessage = "You don't have an internet connection. Please connect to the internet and try again."
-            showLoginFailure(message: errorMessage)
+            Alert.basicAlert(title: "Login Failed", message: errorMessage, vc: self)
             setLoggingIn(loggingIn: false)
         }
         
         OTMClient.loginUser(username: emailTextField.text ?? "",
                             password: passwordTextField.text ?? "") { (sessionResponse, error) in
-            DispatchQueue.main.async {
-                self.setLoggingIn(loggingIn: false)
+            DispatchQueue.main.async { [self] in
+                setLoggingIn(loggingIn: false)
                 
                 if let error = error {
                     // Handle the error and display the login failure message
-                    self.handleLoginError(error)
-                    self.isLoggedIn = false
+                    handleLoginError(error)
+                    isLoggedIn = false
                     print(error)
                 } else if sessionResponse != nil {
                     // Successful login
-                    self.isLoggedIn = true
-                    self.performSegue(withIdentifier: "completeLogin", sender: nil)
+                    isLoggedIn = true
+                    performSegue(withIdentifier: "completeLogin", sender: nil)
                 } else {
                     // Login failed
-                    self.isLoggedIn = false
+                    isLoggedIn = false
                     // Handle the login failure, e.g., show an error message
                     let errorMessage = LoginError.otherError.errorMessage
-                    self.showLoginFailure(message: errorMessage)
+                    Alert.basicAlert(title: "Login Failed", message: errorMessage, vc: self)
                 }
             }
         }
@@ -76,29 +76,18 @@ class LoginViewController: UIViewController, UIGestureRecognizerDelegate {
                   key.stringValue == "account" {
             errorMessage = LoginError.incorrectCredentials.errorMessage
         }
-        self.showLoginFailure(message: errorMessage)
+        Alert.basicAlert(title: "Login Failed", message: errorMessage, vc: self)
     }
     
     func setLoggingIn(loggingIn: Bool) {
-        if loggingIn {
-            activityIndicator.startAnimating()
-        } else {
-            activityIndicator.stopAnimating()
-        }
+        loggingIn ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
         emailTextField.isEnabled = !loggingIn
         passwordTextField.isEnabled = !loggingIn
         loginButton.isEnabled = !loggingIn
     }
     
-    func showLoginFailure(message: String) {
-        let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)
-    }
-    
     @objc func dismissKeyboard() {
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
-        
     }
 }

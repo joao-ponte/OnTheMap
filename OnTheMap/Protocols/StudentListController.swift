@@ -14,7 +14,6 @@ protocol StudentListController: UIViewController {
     func presentErrorAlert(message: String)
     func updateStudentList()
     func showUpdateListFailure(message: String)
-    func openURL(for url: URL)
 }
 
 extension StudentListController {
@@ -69,15 +68,6 @@ extension StudentListController {
         let alertVC = UIAlertController(title: "Update Failed", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertVC, animated: true, completion: nil)
-    }
-    
-    func openURL(for url: URL) {
-        let app = UIApplication.shared
-        if app.canOpenURL(url) {
-            app.open(url, options: [:], completionHandler: nil)
-        } else {
-            print("Unable to open URL")
-        }
     }
     
     func fetchStudentTableView() {

@@ -8,8 +8,8 @@
 import UIKit
 import MapKit
 
-class MapStudentController: UIViewController, StudentListController {
-    
+class MapStudentController: UIViewController, StudentListController {    
+
     @IBOutlet weak var mapView: MKMapView!
 
     override func viewDidLoad() {
@@ -90,6 +90,14 @@ extension MapStudentController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView, let subtitle = view.annotation?.subtitle, let urlString = subtitle, let url = URL(string: urlString) {
             openURL(for: url)
+        }
+    }
+
+    private func openURL(for url: URL) {
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            Alert.basicAlert(title: "Unable to Open URL", message: "The URL cannot be opened", vc: self)
         }
     }
 }

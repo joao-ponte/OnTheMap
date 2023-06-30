@@ -328,14 +328,8 @@
                                     <segue destination="C2j-Zl-JMX" kind="presentation" identifier="findLocation" modalPresentationStyle="fullScreen" id="Y08-2A-zl1"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add a new location " borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="udB-lf-a5Q">
-                                <rect key="frame" x="30" y="70" width="333" height="43.333333333333343"/>
-                                <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ERp-aB-6ZL">
-                                <rect key="frame" x="16" y="143.33333333333334" width="361" height="34"/>
+                                <rect key="frame" x="16" y="131.66666666666666" width="361" height="34"/>
                                 <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -350,23 +344,32 @@
                                     <action selector="cancelNewLocation:" destination="8ib-yU-gjQ" eventType="touchUpInside" id="6OV-2S-rVJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new location " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUp-3e-tXY">
+                                <rect key="frame" x="16" y="70" width="361" height="35"/>
+                                <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="yMP-AR-Mh7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4rb-yk-A9E"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4rb-yk-A9E" firstAttribute="trailing" secondItem="9Te-2d-wlE" secondAttribute="trailing" constant="30" id="3jx-uS-kVS"/>
-                            <constraint firstItem="udB-lf-a5Q" firstAttribute="centerX" secondItem="4rb-yk-A9E" secondAttribute="centerX" id="5RF-R6-2cN"/>
+                            <constraint firstItem="ERp-aB-6ZL" firstAttribute="top" secondItem="ZUp-3e-tXY" secondAttribute="bottom" constant="26.666666666666657" id="6YD-Tb-KbT"/>
                             <constraint firstItem="KKe-3r-ef7" firstAttribute="leading" secondItem="4rb-yk-A9E" secondAttribute="leading" constant="30" id="B1J-sf-gLM"/>
                             <constraint firstItem="4rb-yk-A9E" firstAttribute="trailing" secondItem="ERp-aB-6ZL" secondAttribute="trailing" constant="16" id="NV4-Xo-oRh"/>
                             <constraint firstItem="4rb-yk-A9E" firstAttribute="bottom" secondItem="KKe-3r-ef7" secondAttribute="bottom" constant="83" id="Rqj-Eg-aHS"/>
-                            <constraint firstItem="udB-lf-a5Q" firstAttribute="top" secondItem="4rb-yk-A9E" secondAttribute="top" constant="70" id="TL3-xT-oB8"/>
                             <constraint firstItem="KKe-3r-ef7" firstAttribute="centerX" secondItem="4rb-yk-A9E" secondAttribute="centerX" id="ZPP-PZ-bue"/>
-                            <constraint firstItem="udB-lf-a5Q" firstAttribute="leading" secondItem="4rb-yk-A9E" secondAttribute="leading" constant="30" id="b3G-xl-loY"/>
                             <constraint firstItem="ERp-aB-6ZL" firstAttribute="leading" secondItem="4rb-yk-A9E" secondAttribute="leading" constant="16" id="bKx-kp-qQe"/>
+                            <constraint firstItem="ZUp-3e-tXY" firstAttribute="leading" secondItem="4rb-yk-A9E" secondAttribute="leading" constant="16" id="ce9-H3-K1k"/>
+                            <constraint firstItem="ZUp-3e-tXY" firstAttribute="centerX" secondItem="4rb-yk-A9E" secondAttribute="centerX" id="kWx-rh-QYJ"/>
                             <constraint firstItem="4rb-yk-A9E" firstAttribute="trailing" secondItem="KKe-3r-ef7" secondAttribute="trailing" constant="30" id="rhR-s1-l5C"/>
-                            <constraint firstItem="udB-lf-a5Q" firstAttribute="top" secondItem="9Te-2d-wlE" secondAttribute="bottom" constant="8" symbolic="YES" id="s6a-Nj-NNu"/>
-                            <constraint firstItem="4rb-yk-A9E" firstAttribute="trailing" secondItem="udB-lf-a5Q" secondAttribute="trailing" constant="30" id="sm4-o5-qKh"/>
-                            <constraint firstItem="ERp-aB-6ZL" firstAttribute="top" secondItem="udB-lf-a5Q" secondAttribute="bottom" constant="30" id="vlu-Yg-LNy"/>
+                            <constraint firstItem="4rb-yk-A9E" firstAttribute="trailing" secondItem="ZUp-3e-tXY" secondAttribute="trailing" constant="16" id="tqe-qZ-mad"/>
+                            <constraint firstItem="ZUp-3e-tXY" firstAttribute="top" secondItem="9Te-2d-wlE" secondAttribute="bottom" constant="8" symbolic="YES" id="x12-5C-U3x"/>
                             <constraint firstItem="9Te-2d-wlE" firstAttribute="top" secondItem="4rb-yk-A9E" secondAttribute="top" constant="27" id="xBz-8U-DfT"/>
                         </constraints>
                     </view>
@@ -457,7 +460,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="x6s-jB-oMu"/>
+        <segue reference="isv-mf-ZZB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
