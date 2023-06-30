@@ -16,11 +16,11 @@ enum LoginError: Error {
     var errorMessage: String {
         switch self {
         case .incorrectCredentials:
-            return "Incorrect email or password. Please try again."
+            return "The credentials were incorrect, please check your email or/and your password."
         case .keyNotFound:
-            return "Incorrect email or password. Please try again."
+            return "The credentials were incorrect, please check your email or/and your password."
         case .networkError:
-            return "Network error occurred. Please check your internet connection and try again."
+            return "The Internet connection is offline, please try again later."
         case .otherError:
             return "An unexpected error occurred. Please try again later."
         }

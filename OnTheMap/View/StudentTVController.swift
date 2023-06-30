@@ -13,10 +13,8 @@ class StudentTVController: UIViewController, StudentListController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        OTMClient.getStudents { (students, _) in
-            StudentModel.students = students
-            self.tableView.reloadData()
-        }
+        fetchStudentTableView()
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {

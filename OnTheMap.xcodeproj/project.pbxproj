@@ -33,6 +33,7 @@
 		FCA9CA6A2A439422007471C0 /* OTMHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9CA692A439422007471C0 /* OTMHttpClient.swift */; };
 		FCA9CA6C2A44487C007471C0 /* MapStudentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9CA6B2A44487C007471C0 /* MapStudentController.swift */; };
 		FCAA61322A419F6B00852439 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAA61312A419F6B00852439 /* LoginViewController.swift */; };
+		FCBD40912A4ED0ED00CB9729 /* FetchStudentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBD40902A4ED0ED00CB9729 /* FetchStudentError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		FCA9CA692A439422007471C0 /* OTMHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMHttpClient.swift; sourceTree = "<group>"; };
 		FCA9CA6B2A44487C007471C0 /* MapStudentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStudentController.swift; sourceTree = "<group>"; };
 		FCAA61312A419F6B00852439 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FCBD40902A4ED0ED00CB9729 /* FetchStudentError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchStudentError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				FC994BB52A2F304F003702C8 /* OTMClient.swift */,
 				FCA9CA692A439422007471C0 /* OTMHttpClient.swift */,
 				FC23D8772A45B1FC0025A082 /* LoginError.swift */,
+				FCBD40902A4ED0ED00CB9729 /* FetchStudentError.swift */,
 				FC23D8792A45BC260025A082 /* Reachability.swift */,
 				FC994BB42A2F302B003702C8 /* OTMClient */,
 			);
@@ -273,6 +276,7 @@
 				FC994BC02A2F3E13003702C8 /* OTMPostResponse.swift in Sources */,
 				FC994BB62A2F304F003702C8 /* OTMClient.swift in Sources */,
 				FC994BA02A2F2E78003702C8 /* AppDelegate.swift in Sources */,
+				FCBD40912A4ED0ED00CB9729 /* FetchStudentError.swift in Sources */,
 				FC994BC22A2F3FB3003702C8 /* PostStudent.swift in Sources */,
 				FC23D8782A45B1FC0025A082 /* LoginError.swift in Sources */,
 				FC4A4EC52A4C762A00367318 /* NewLocationViewController.swift in Sources */,
