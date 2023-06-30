@@ -49,7 +49,7 @@ class SubmittedNewLocationViewController: UIViewController, MKMapViewDelegate {
             OTMClient.updateStudent(mapString: location, mediaURL: mediaURL, latitude: Float(latitude), longitude: Float(longitude)) { [weak self] success, error in
                 guard let self = self else { return }
                 
-                self.activityIndicator.stopAnimating() // Stop activity indicator
+                activityIndicator.stopAnimating() // Stop activity indicator
                 
                 if success {
                     Alert.dismissAlert(title: "Success", message: "The student location was updated successfully", vc: self)
@@ -62,7 +62,7 @@ class SubmittedNewLocationViewController: UIViewController, MKMapViewDelegate {
             OTMClient.addStudent(mapString: location, mediaURL: mediaURL, latitude: Float(latitude), longitude: Float(longitude)) { [weak self] success, error in
                 guard let self = self else { return }
                 
-                self.activityIndicator.stopAnimating()
+                activityIndicator.stopAnimating()
                 
                 if success {
                     Alert.dismissAlert(title: "Success", message: "A student was added successfully", vc: self)

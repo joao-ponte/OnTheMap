@@ -354,15 +354,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="l42-ww-V12">
+                                <rect key="frame" x="186.66666666666666" y="198" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4rb-yk-A9E"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4rb-yk-A9E" firstAttribute="trailing" secondItem="9Te-2d-wlE" secondAttribute="trailing" constant="30" id="3jx-uS-kVS"/>
                             <constraint firstItem="ERp-aB-6ZL" firstAttribute="top" secondItem="ZUp-3e-tXY" secondAttribute="bottom" constant="26.666666666666657" id="6YD-Tb-KbT"/>
+                            <constraint firstItem="l42-ww-V12" firstAttribute="centerX" secondItem="4rb-yk-A9E" secondAttribute="centerX" id="7sN-hm-2rN"/>
                             <constraint firstItem="KKe-3r-ef7" firstAttribute="leading" secondItem="4rb-yk-A9E" secondAttribute="leading" constant="30" id="B1J-sf-gLM"/>
                             <constraint firstItem="4rb-yk-A9E" firstAttribute="trailing" secondItem="ERp-aB-6ZL" secondAttribute="trailing" constant="16" id="NV4-Xo-oRh"/>
                             <constraint firstItem="4rb-yk-A9E" firstAttribute="bottom" secondItem="KKe-3r-ef7" secondAttribute="bottom" constant="83" id="Rqj-Eg-aHS"/>
+                            <constraint firstItem="l42-ww-V12" firstAttribute="top" secondItem="ERp-aB-6ZL" secondAttribute="bottom" constant="32.329999999999998" id="Y0N-oa-8TM"/>
                             <constraint firstItem="KKe-3r-ef7" firstAttribute="centerX" secondItem="4rb-yk-A9E" secondAttribute="centerX" id="ZPP-PZ-bue"/>
                             <constraint firstItem="ERp-aB-6ZL" firstAttribute="leading" secondItem="4rb-yk-A9E" secondAttribute="leading" constant="16" id="bKx-kp-qQe"/>
                             <constraint firstItem="ZUp-3e-tXY" firstAttribute="leading" secondItem="4rb-yk-A9E" secondAttribute="leading" constant="16" id="ce9-H3-K1k"/>
@@ -374,6 +379,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="l42-ww-V12" id="ogZ-V6-0nB"/>
                         <outlet property="locationTextField" destination="ERp-aB-6ZL" id="22w-ag-dea"/>
                     </connections>
                 </viewController>
@@ -460,7 +466,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="isv-mf-ZZB"/>
+        <segue reference="x6s-jB-oMu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
