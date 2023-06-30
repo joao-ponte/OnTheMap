@@ -325,7 +325,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="tapFindOnTheMap:" destination="8ib-yU-gjQ" eventType="touchUpInside" id="dFn-tA-vlL"/>
-                                    <segue destination="C2j-Zl-JMX" kind="presentation" identifier="findLocation" modalPresentationStyle="fullScreen" id="Y08-2A-zl1"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ERp-aB-6ZL">
@@ -381,6 +380,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="l42-ww-V12" id="ogZ-V6-0nB"/>
                         <outlet property="locationTextField" destination="ERp-aB-6ZL" id="22w-ag-dea"/>
+                        <segue destination="C2j-Zl-JMX" kind="presentation" identifier="findLocation" modalPresentationStyle="fullScreen" id="w2g-0B-aqA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e07-TA-3Rf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -466,7 +466,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="x6s-jB-oMu"/>
+        <segue reference="isv-mf-ZZB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="113" height="128"/>

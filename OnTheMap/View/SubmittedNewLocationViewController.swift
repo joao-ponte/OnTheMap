@@ -15,26 +15,32 @@ class SubmittedNewLocationViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let textFieldDelegate = TextFieldDelegate()
-    var locationText: String?
     var latitude: CLLocationDegrees?
     var longitude: CLLocationDegrees?
+    var placemarks: [CLPlacemark]?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         linkTextField.text = "Enter a Link to share here"
-        if locationText != nil {
-        }
         linkTextField.delegate = textFieldDelegate
         
-        if let locationText = locationText {
-            geocodeLocation(locationText)
+        if let placemark = placemarks?.first {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = placemark.location!.coordinate
+            annotation.title = placemark.name
+            self.mapView.addAnnotation(annotation)
+            
+            self.centerMapOnLocation(placemark.location!.coordinate)
+            
+            self.latitude = placemark.location!.coordinate.latitude
+            self.longitude = placemark.location!.coordinate.longitude
         }
         
         mapView.delegate = self
     }
     
     @IBAction func submitNewLocation(_ sender: Any) {
-        guard let location = locationText,
+        guard let location = placemarks?.first?.name,
               let mediaURL = linkTextField.text,
               let latitude = latitude,
               let longitude = longitude else {
@@ -70,29 +76,6 @@ class SubmittedNewLocationViewController: UIViewController, MKMapViewDelegate {
                     let errorMessage = error?.localizedDescription ?? "Try again!"
                     Alert.dismissAlert(title: "Weird", message: errorMessage, vc: self)
                 }
-            }
-        }
-    }
-    
-    func geocodeLocation(_ location: String) {
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(location) { [weak self] (placemarks, error) in
-            guard let self = self else { return }
-            
-            if error != nil {
-                Alert.dismissAlert(title: "Invalid city or country", message: "Please enter a valid city or country.", vc: self)
-                return
-            }
-            if let placemark = placemarks?.first {
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = placemark.location!.coordinate
-                annotation.title = placemark.name
-                self.mapView.addAnnotation(annotation)
-                
-                self.centerMapOnLocation(placemark.location!.coordinate)
-                
-                self.latitude = placemark.location!.coordinate.latitude
-                self.longitude = placemark.location!.coordinate.longitude
             }
         }
     }
