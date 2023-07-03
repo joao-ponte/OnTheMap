@@ -27,7 +27,7 @@ To install and set up On The Map app, follow these steps:
 To use the On The Map app, follow these steps:
 - Launch the app on your iOS device.
 - Launch the app and sign in with your Udacity account or register for a new account if you don't have one.
-- Once logged in, you will be presented with a map view, browse the map and view interactive map pins representing student locations around the world, ap on a pin to see additional information about the student, including their name and location.
+- Once logged in, you will be presented with a map view, browse the map and view interactive map pins representing student locations around the world, tap on a pin to see additional information about the student, including their name and location.
 - Within the student profile, you may find a LinkedIn link.
 - To add your location to the map, tap on the "+" button on the map view.
 - Enter your desired location information, such as city or country, and click on the "Find Location" button.
