@@ -9,7 +9,7 @@ Discover Udacity Student Locations: Share, explore, and connect with fellow lear
 
 
 ```bash
-As an user, I want to explore and connect with fellow Udacity students worldwide.
+As a user, I want to explore and connect with fellow Udacity students worldwide.
 So that I can view their shared locations on an interactive map,
 browse their profiles, and access their LinkedIn links.
 By doing so, I can join the global network of Udacity students,
