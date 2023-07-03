@@ -59,7 +59,10 @@ The MemeMe 1.0 app is built using the following technologies and tools:
 - User Authentication
 - Data Persistence
 - UI/UX Design
+  
 ## Screenshots
+https://github.com/joao-ponte/OnTheMap/assets/114771106/6df59063-bd8d-4d6a-8899-91036f931641
+
 ## Authors
 
 - [@Joao Ponte](https://www.linkedin.com/in/jponte/)
