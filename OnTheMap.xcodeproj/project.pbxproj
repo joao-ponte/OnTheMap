@@ -89,6 +89,7 @@
 				FCA9CA6B2A44487C007471C0 /* MapStudentController.swift */,
 				FC4A4EC42A4C762A00367318 /* NewLocationViewController.swift */,
 				FC4A4EC62A4C766E00367318 /* SubmittedNewLocationViewController.swift */,
+				FC94CE3A2A4D797900C79F27 /* StudentListController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -98,7 +99,6 @@
 			children = (
 				FC994B9F2A2F2E78003702C8 /* AppDelegate.swift */,
 				FC4A4EC22A4C40B600367318 /* TextFieldDelegate.swift */,
-				FC94CE3A2A4D797900C79F27 /* StudentListController.swift */,
 				FC994BA12A2F2E78003702C8 /* SceneDelegate.swift */,
 			);
 			path = Protocols;
@@ -143,11 +143,11 @@
 		FC994B9E2A2F2E78003702C8 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
-				FCBD40922A4F009D00CB9729 /* Errors */,
 				FC94CE3D2A4D837600C79F27 /* API */,
-				FC4A4EC92A4C9C4300367318 /* View */,
-				FC94CE3C2A4D79F900C79F27 /* Protocols */,
 				FCA77E252A44615500384803 /* Data */,
+				FCBD40922A4F009D00CB9729 /* Errors */,
+				FC94CE3C2A4D79F900C79F27 /* Protocols */,
+				FC4A4EC92A4C9C4300367318 /* View */,
 				FC994BA52A2F2E78003702C8 /* Main.storyboard */,
 				FC994BA82A2F2E7C003702C8 /* Assets.xcassets */,
 				FC994BAA2A2F2E7C003702C8 /* LaunchScreen.storyboard */,
