@@ -1,5 +1,5 @@
 
-# On The Map
+# <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" height="40" width="40">  On The Map
 
 Discover Udacity Student Locations: Share, explore, and connect with fellow learners worldwide! View interactive map pins, browse student profiles, and access LinkedIn links. Join the global network of Udacity students through this engaging app. Learn, collaborate, and expand your horizons together!
 
