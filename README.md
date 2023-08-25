@@ -46,7 +46,7 @@ The On The Map app provides the following features:
 - Profile Management
 - Authentication and Security
 ## Technologies Used
-The MemeMe 1.0 app is built using the following technologies and tools:
+The On The Map app is built using the following technologies and tools:
 - Swift programming language.
 - Xcode IDE.
 - UIKit framework for building the user interface.
